@@ -1,0 +1,25 @@
+# -----------------------------------------------------
+# AUTOSTART (custom override)
+# -----------------------------------------------------
+
+finder() {
+    local result=$($HOME/.config/ml4w/bin/ml4w-finder)
+
+    if [[ "$result" == TYPE_DIR:* ]]; then
+        local target_dir="${result#TYPE_DIR:}"
+        cd "$target_dir" && ls
+    elif [[ "$result" == TYPE_FILE:* ]]; then
+        ${EDITOR:-nano} "${result#TYPE_FILE:}"
+    else
+        echo "Could not read $result" >&2
+        return 1
+    fi
+}
+
+# -----------------------------------------------------
+# Fastfetch (guarded)
+# -----------------------------------------------------
+if [[ $(tty) == *"pts"* ]] && [[ -z "$FASTFETCH_SHOWN" ]]; then
+    export FASTFETCH_SHOWN=1
+    fastfetch
+fi

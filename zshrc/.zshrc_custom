@@ -1,0 +1,23 @@
+# =====================================================
+# ML4W: User customizations (zsh)
+# =====================================================
+
+if [[ -o interactive ]]; then
+    # Oh My Posh prompt (correct)
+    if command -v oh-my-posh >/dev/null 2>&1; then
+        eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/arch-catppuccin.json)"
+    fi
+
+# Fastfetch (kitty only, custom config)
+    if [[ "$TERM" == *kitty* ]] && command -v fastfetch >/dev/null 2>&1; then
+        fastfetch --config "$HOME/.config/fastfetch-custom/config.jsonc"
+    fi
+fi
+
+
+# =====================================================
+# Optional: Aliases
+# =====================================================
+alias ff='fastfetch --config ~/.config/fastfetch-custom/config.jsonc'
+alias nf='fastfetch --config ~/.config/fastfetch-custom/config.jsonc'
+alias pf='fastfetch --config ~/.config/fastfetch-custom/config.jsonc'
