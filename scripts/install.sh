@@ -55,12 +55,12 @@ cp -rn "$REPO_DIR/hypr/conf/"* "$HOME/.config/hypr/conf/"
 
 # ZSH main custom file
 echo "[*] Applying ZSH custom configs..."
-cp -n "$REPO_DIR/zsh/.zshrc_custom" "$HOME/.zshrc_custom"
+cp -n "$REPO_DIR/zshrc/.zshrc_custom" "$HOME/.zshrc_custom"
 
 # ZSH modular custom scripts
 echo "[*] Applying ZSH modular scripts..."
 mkdir -p "$HOME/.config/zshrc/custom"
-cp -rn "$REPO_DIR/zsh/"*.zsh "$HOME/.config/zshrc/custom/" 2>/dev/null || true
+cp -rn "$REPO_DIR/zshrc/"* "$HOME/.config/zshrc/custom/" 2>/dev/null || true
 
 # MPD
 echo "[*] Setting up MPD..."
